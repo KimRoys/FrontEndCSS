@@ -1,0 +1,126 @@
+* {
+  margin: 10px;
+
+}
+
+html {
+  
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+body {
+    background-color: rgb(226, 217, 204);
+    display: grid;
+    /*grid-template-areas: 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr;*/
+    /*grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);*/
+    max-width: 1024px;
+  }
+  
+  h1 {
+    color: blue;
+    text-align: center;
+  }
+  
+  p {
+    font-family: verdana;
+    font-size: 20px;
+  }
+  
+  header { 
+    display: flex;    
+    /*grid-row:  1 / 2;
+    grid-column: 1 / 6;*/
+    background-color: rgb(202, 186, 214);
+    justify-content: space-around;
+  }
+
+  /*header > img {
+    grid-column: 1  / 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  }*/
+
+ /* header > li  {
+    grid-column: 2 / 5 ;
+  }*/
+
+  header > li {
+    padding: 0 20px 0 20px;
+  }
+ 
+  li:hover {
+    color:red;
+    font-size: 20px;
+  }
+  
+  li:active {
+      color: blue;
+  }
+
+
+  /*header > a {
+    grid-column: 5 / 7 ;
+  }*/
+
+  /*main {
+    grid-row: 2 / 5;
+  }*/
+
+  /*footer {
+    grid-row: 5 / 6;
+  }*/
+  
+  #login {
+    background: linear-gradient(to bottom, pink, #a23cf6);
+    border: 1px solid #696969;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px black;
+    height: 3ch;
+}
+
+  .box {
+    display: flex;
+    writing-mode: horizontal-tb;
+  }
+
+ .wrapper {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  /* We tell all items to be 100% width, via flex-basis */
+  .wrapper > * {
+    flex: 1 100%;
+  }
+  
+  /* We rely on source order for mobile-first approach
+   * in this case:
+   * 1. header
+   * 2. article
+   * 3. aside 1
+   * 4. aside 2
+   * 5. footer
+   */
+  
+  /* Medium screens */
+  @media all and (min-width: 600px) {
+     We tell both sidebars to share a row 
+    .aside { flex: 1 auto; }
+  }
+  
+  /* Large screens */
+  @media all and (min-width: 1024px) {
+    /* We invert order of first sidebar and main
+     * And tell the main element to take twice as much width as the other two sidebars */
+     
+     
+    .main { flex: 2 0px; }
+    .header { order: 1;}
+    .main    { order: 2; }
+    .aside { order: 3; }
+    .footer  {  order: 4; }
+  }
+  
